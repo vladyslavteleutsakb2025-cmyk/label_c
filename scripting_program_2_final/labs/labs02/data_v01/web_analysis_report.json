@@ -1,0 +1,115 @@
+{
+  "source_file": "/Users/kit/PycharmProjects/scripting_program_2/labs/lab02/data/data_v01/access.log",
+  "parameters": {
+    "min_status": 400,
+    "top": 5,
+    "since": null,
+    "until": null
+  },
+  "summary": {
+    "total_lines": 68,
+    "malformed_lines": 0,
+    "processed_entries": 68,
+    "error_responses": 35,
+    "first_timestamp": "2026-09-27T08:00:00+03:00",
+    "last_timestamp": "2026-09-27T19:06:00+03:00"
+  },
+  "top_error_ips": [
+    {
+      "ip": "203.0.113.99",
+      "errors": 18,
+      "statuses": {
+        "400": 4,
+        "401": 2,
+        "403": 2,
+        "404": 9,
+        "500": 1
+      }
+    },
+    {
+      "ip": "192.0.2.11",
+      "errors": 7,
+      "statuses": {
+        "400": 2,
+        "401": 3,
+        "404": 1,
+        "500": 1
+      }
+    },
+    {
+      "ip": "192.0.2.10",
+      "errors": 4,
+      "statuses": {
+        "400": 1,
+        "403": 1,
+        "500": 2
+      }
+    },
+    {
+      "ip": "203.0.113.45",
+      "errors": 3,
+      "statuses": {
+        "400": 1,
+        "403": 1,
+        "404": 1
+      }
+    },
+    {
+      "ip": "198.51.100.23",
+      "errors": 3,
+      "statuses": {
+        "403": 2,
+        "404": 1
+      }
+    }
+  ],
+  "attack_counts": {
+    "SQLi": 2,
+    "Directory Traversal": 2,
+    "XSS": 2
+  },
+  "attacks": [
+    {
+      "type": "SQLi",
+      "ip": "203.0.113.99",
+      "timestamp": "2026-09-27T18:30:00+03:00",
+      "status": 401,
+      "request": "GET /login?user=admin' OR '1'='1"
+    },
+    {
+      "type": "SQLi",
+      "ip": "203.0.113.99",
+      "timestamp": "2026-09-27T18:32:00+03:00",
+      "status": 403,
+      "request": "GET /search?q=1%27%20OR%201%3D1--"
+    },
+    {
+      "type": "Directory Traversal",
+      "ip": "203.0.113.99",
+      "timestamp": "2026-09-27T18:34:00+03:00",
+      "status": 404,
+      "request": "GET /../../etc/passwd"
+    },
+    {
+      "type": "Directory Traversal",
+      "ip": "203.0.113.99",
+      "timestamp": "2026-09-27T18:36:00+03:00",
+      "status": 400,
+      "request": "GET /download?file=../../../etc/shadow"
+    },
+    {
+      "type": "XSS",
+      "ip": "203.0.113.99",
+      "timestamp": "2026-09-27T18:38:00+03:00",
+      "status": 403,
+      "request": "GET /search?q=<script>alert(1)</script>"
+    },
+    {
+      "type": "XSS",
+      "ip": "203.0.113.99",
+      "timestamp": "2026-09-27T18:40:00+03:00",
+      "status": 500,
+      "request": "GET /comment?text=%3Cscript%3Ealert(1)%3C/script%3E"
+    }
+  ]
+}
